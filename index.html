@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7ee">
+  <title>Un jardín para ti, Cris 💛</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="paper" aria-hidden="true"></div>
+  <header><a class="brand" href="./">C <span>♡</span></a><span>21 DE SEPTIEMBRE · SOLO PARA TI</span><button id="sound" class="quiet" aria-pressed="false" aria-label="Activar sonido">Sonido: apagado</button></header>
+  <main>
+    <section id="welcome" class="screen welcome" aria-labelledby="welcome-title">
+      <div class="intro"><p class="eyebrow">UN DETALLE PARA EL AMOR DE MI VIDA</p><h1 id="welcome-title">Hay flores que<br>dicen <em>te amo.</em></h1><p class="description">Y un jardín entero que hoy florece para ti.<br>Mi amor, escondí una sorpresa entre sus flores.</p><button id="start" class="primary">Descubrir mi sorpresa <span>↗</span></button><p class="footnote">Seis flores. Seis razones. Y tú, siempre tú.</p></div>
+      <div class="illustration" aria-hidden="true"><div class="sun"></div><div class="orbit"></div><div id="bouquet"></div><span class="handwritten">Para ti, hermosa.</span><span class="spark s1">✧</span><span class="spark s2">✧</span></div>
+      <div class="bottom-note"><span>HECHO CON TODO MI AMOR</span><span>Una pequeña sorpresa, un amor enorme.</span></div>
+    </section>
+    <section id="game" class="screen game" hidden aria-labelledby="game-title">
+      <p class="eyebrow">UN RAMO DE COSAS QUE QUIERO DECIRTE</p><h2 id="game-title">Recoge un poquito de <em>mi amor.</em></h2><p class="description">Toca cada flor y descubre lo que guardé para ti.</p>
+      <div class="progress"><span id="counter">0 de 6 flores</span><div id="dots" aria-hidden="true"></div></div>
+      <div id="garden" class="garden" aria-label="Jardín de seis flores amarillas"></div>
+      <div class="message" aria-live="polite" aria-atomic="true"><span id="message-name">Mi amor…</span><p id="message-text">Cada flor tiene algo que decirte.</p></div>
+      <button id="reveal" class="primary" hidden>Este ramo es para ti <span>♡</span></button>
+    </section>
+    <section id="finale" class="screen finale" hidden aria-labelledby="final-title">
+      <div class="photo-wrap"><div class="photo-card"><img src="cris.jpeg" alt="Cris, el amor de mi vida" width="720" height="1280"><span>Mi lugar favorito eres tú. ♡</span></div><div id="photo-flowers" aria-hidden="true"></div></div>
+      <div class="letter"><p class="eyebrow">PARA CRIS, CON TODO MI CORAZÓN</p><h2 id="final-title" tabindex="-1">Todas las flores.<br><em>Siempre para ti.</em></h2><p>Mi amor, mi vida, hermosa, preciosa…</p><p>Te llamo de tantas maneras porque una sola palabra no alcanza para decirte todo lo que eres para mí.</p><p>Hoy quería regalarte flores amarillas, pero también recordarte algo: mi parte favorita de la vida es compartirla contigo.</p><p>Que nunca te falten flores, motivos para sonreír ni la certeza de cuánto te amo.</p><p class="signature">Hoy y todos los días, te elijo a ti. <span>♡</span></p><button id="restart" class="quiet">↺ Volver a pasear por nuestro jardín</button></div>
+    </section>
+  </main>
+  <div id="confetti" aria-hidden="true"></div>
+  <footer>PARA MI PERSONA FAVORITA <span>♡</span> SEPTIEMBRE, CONTIGO</footer>
+</body>
+</html>
