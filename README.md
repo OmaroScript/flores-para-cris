@@ -12,4 +12,4 @@ Abre `http://localhost:4173` en la computadora o la dirección IP local de esa c
 
 Para compartir un enlace por internet, publica el contenido de esta carpeta en un alojamiento estático. La foto será accesible para quienes tengan acceso al sitio.
 
-Los seis mensajes están en `app.js`; la carta final está en `index.html`. La foto es `cris.jpeg`. El sonido es opcional, sintetizado en el navegador, y se activa únicamente al pulsar su botón. Se respeta la preferencia del dispositivo de reducir movimiento.
+Los seis mensajes están en `app.js`; la carta final está en `index.html`. La foto es `cris.jpeg`. El sonido se sintetiza en el navegador y se activa al comenzar el juego, sin botón para silenciarlo. Se respeta la preferencia del dispositivo de reducir movimiento.

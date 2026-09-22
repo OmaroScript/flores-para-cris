@@ -9,7 +9,6 @@ const messages = [
   ['Mi todo', 'Este pequeño jardín se acaba, pero mis ganas de amarte, nunca.'],
 ];
 let collected = new Set();
-let soundEnabled = false;
 let audioContext;
 let rainTimer;
 let rainStop;
@@ -31,8 +30,13 @@ function show(id) {
   ['welcome','game','finale'].forEach(name => $(name).hidden = name !== id);
   window.scrollTo({top:0,behavior:'instant'});
 }
-function chime(index = 0) {
-  if (!soundEnabled || !audioContext) return;
+async function chime(index = 0) {
+  try {
+    if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioContext.state !== 'running') await audioContext.resume();
+  } catch {
+    return;
+  }
   const now = audioContext.currentTime;
   [0,4,7].forEach((offset,i) => {
     const oscillator=audioContext.createOscillator(), gain=audioContext.createGain();
@@ -62,14 +66,10 @@ function dropFlower() {
   element.innerHTML=flower(false);$('confetti').append(element);element.addEventListener('animationend',()=>element.remove(),{once:true});
 }
 function stopRain(){clearInterval(rainTimer);clearTimeout(rainStop);$('confetti').replaceChildren();}
-$('start').addEventListener('click',()=>{resetGarden();show('game');$('garden').querySelector('button').focus({preventScroll:true});});
+$('start').addEventListener('click',()=>{chime();resetGarden();show('game');$('garden').querySelector('button').focus({preventScroll:true});});
 $('reveal').addEventListener('click',()=>{
   show('finale');$('final-title').focus({preventScroll:true});chime(7);stopRain();
   if(reducedMotion.matches){for(let i=0;i<16;i++)dropFlower();return;}
   for(let i=0;i<14;i++)dropFlower();rainTimer=setInterval(dropFlower,230);rainStop=setTimeout(()=>clearInterval(rainTimer),24000);
 });
 $('restart').addEventListener('click',()=>{stopRain();resetGarden();show('game');$('garden').querySelector('button').focus({preventScroll:true});});
-$('sound').addEventListener('click',async()=>{
-  try{if(!audioContext)audioContext=new (window.AudioContext||window.webkitAudioContext)();await audioContext.resume();soundEnabled=!soundEnabled;$('sound').textContent=`Sonido: ${soundEnabled?'encendido':'apagado'}`;$('sound').setAttribute('aria-pressed',String(soundEnabled));$('sound').setAttribute('aria-label',soundEnabled?'Desactivar sonido':'Activar sonido');if(soundEnabled)chime();}
-  catch{$('sound').textContent='Sonido no disponible';$('sound').disabled=true;}
-});
